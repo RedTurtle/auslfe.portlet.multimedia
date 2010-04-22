@@ -13,6 +13,8 @@ from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from Products.ATContentTypes.interface import IATTopic
 from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
+from plone.memoize.instance import memoize
+from zope.component import getMultiAdapter
 
 
 class IAuslfePortletMultimedia(IPortletDataProvider):
@@ -68,6 +70,34 @@ class Renderer(base.Renderer):
     """Portlet renderer"""
 
     render = ViewPageTemplateFile('auslfeportletmultimedia.pt')
+    
+    @memoize
+    def targetCollection(self):
+        """Get the collection the portlet is pointing to"""
+        
+        target_collection = self.data.target_collection
+        if not target_collection:
+            return None
+
+        if target_collection.startswith('/'):
+            target_collection = target_collection[1:]
+        
+        if not target_collection:
+            return None
+
+        portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
+        portal = portal_state.portal()
+        return portal.restrictedTraverse(target_collection, default=None)
+    
+    def getTargetCollectionPath(self):
+        """Restituisce l'url della collezione che fornisce le foto da visualizzare"""
+        
+        collection = self.targetCollection()
+        if collection is None:
+            return None
+        else:
+            return collection.absolute_url()
+
 
 
 class AddForm(base.AddForm):

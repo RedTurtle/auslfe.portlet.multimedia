@@ -1,9 +1,11 @@
 <dl class="portlet portletAuslfePortletMultimedia"
     i18n:domain="auslfe.portlet.multimedia">
-
+    
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
-        Header
+        <span tal:content="view/data/portlet_title">
+           Title
+        </span>
         <span class="portletTopRight"></span>
     </dt>
 
@@ -13,7 +15,14 @@
 
     <dd class="portletFooter">
         <span class="portletBottomLeft"></span>
-        Footer
+        <a class="tile" href="#" tal:attributes="href python: view.getTargetCollectionPath()">
+        	<span tal:content="python: view.data.target_collection_title or 'Tutte le foto'">
+           		Tutte le foto
+           </span>
+           <span>
+           		&raquo;
+           </span>
+        </a>
         <span class="portletBottomRight"></span>
     </dd>
 
