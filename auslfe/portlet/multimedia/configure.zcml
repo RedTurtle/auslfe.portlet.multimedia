@@ -9,18 +9,11 @@
 
     <genericsetup:registerProfile
        name="default"
-       title="AUuslfe Portlet Multimedia"
+       title="Auslfe Portlet Multimedia"
        directory="profiles/default"
        description=""
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
-
-     <!-- Register the portlet -->
-
-     <!-- If the portlet has no configurable parameters, you can remove
-          the EditForm declaration in auslfeportletmultimedia.py and delete
-          the 'editview' attribute from this statement.
-       -->
 
      <plone:portlet
          name="auslfe.portlet.multimedia.AuslfePortletMultimedia"
