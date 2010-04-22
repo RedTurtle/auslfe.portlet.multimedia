@@ -23,7 +23,7 @@ class IAuslfePortletMultimedia(IPortletDataProvider):
                                required = True)
     
     portlet_text = schema.Text(title=_(u"Testo del riquadro"),
-                               description=_(u"Inserire il testo che verrà visualizzato nell'intestazione del riquadro."),
+                               description=_(u"Inserire il testo da visualizzare nell'intestazione del riquadro."),
                                required=False)
     
     target_collection = schema.Choice(title=_(u"Archivio fotografico"),
@@ -50,9 +50,9 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return "Portlet Multimedia"
+        return "Riquadro Multimedia"
         #target_collection = str(self.data.target_collection[1:])
-        #return "Portlet Multimedia: %s" % target_collection
+        #return "Riquadro Multimedia: %s" % target_collection
 
 class Renderer(base.Renderer):
     """Portlet renderer"""
