@@ -71,6 +71,12 @@ class Renderer(base.Renderer):
 
     render = ViewPageTemplateFile('auslfeportletmultimedia.pt')
     
+    def getPortletClass(self):
+        if self.data.portlet_class:
+            return self.data.portlet_class
+        else:
+            return ""
+    
     @memoize
     def targetCollection(self):
         """Get the collection the portlet is pointing to"""
