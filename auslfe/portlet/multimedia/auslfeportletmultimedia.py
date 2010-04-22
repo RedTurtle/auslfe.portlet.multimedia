@@ -132,7 +132,10 @@ class Renderer(base.Renderer):
         collection = self.targetCollection()
         if collection is not None:
             results = collection.queryCatalog(sort_on=None)
-            random.shuffle(results)
+            try:
+                random.shuffle(results)
+            except AttributeError:
+                return results
         return results
     
 
