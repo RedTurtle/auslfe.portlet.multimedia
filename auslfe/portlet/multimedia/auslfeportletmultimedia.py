@@ -15,6 +15,7 @@ from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.memoize.instance import memoize
 from zope.component import getMultiAdapter
+import random
 
 
 class IAuslfePortletMultimedia(IPortletDataProvider):
@@ -38,6 +39,12 @@ class IAuslfePortletMultimedia(IPortletDataProvider):
                                               description=_(u"Puoi personalizzare il testo del link all'archivio (se vuoto sara\'  'Tutte le foto')."),
                                               required=False)
     
+    random = schema.Bool(title=_(u"Seleziona elementi a caso"),
+                         description=_(u"Se abilitato, gli elementi verranno estratti dalla collezione in ordine casuale,"
+                                        " invece che nell'ordine stabilito dalla collezione stessa."),
+                         required=False,
+                         default=True)
+    
     portlet_class = schema.TextLine(title=_(u"Classe CSS"),
                                    description=_(u"In questo campo puoi aggiungere una classe CSS."),
                                    required=False)
@@ -47,7 +54,7 @@ class Assignment(base.Assignment):
 
     implements(IAuslfePortletMultimedia)
     
-    def __init__(self,portlet_title='',portlet_text='',target_collection=None,target_collection_title='',portlet_class=''):
+    def __init__(self,portlet_title='',portlet_text='',target_collection=None,target_collection_title='',random=True,portlet_class=''):
         """
         """        
         base.Assignment.__init__(self)
@@ -55,6 +62,7 @@ class Assignment(base.Assignment):
         self.portlet_text = portlet_text
         self.target_collection = target_collection
         self.target_collection_title = target_collection_title
+        self.random = random
         self.portlet_class = portlet_class
 
     @property
@@ -104,6 +112,13 @@ class Renderer(base.Renderer):
         else:
             return collection.absolute_url()
         
+    def results(self):
+        """Get the actual result brains from the collection"""
+        if self.data.random:
+            return self.randomResults()
+        else:
+            return self.standardResults()
+        
     @memoize
     def standardResults(self):
         results = []
@@ -111,6 +126,15 @@ class Renderer(base.Renderer):
         if collection is not None:
             results = collection.queryCatalog()
         return results
+        
+    def randomResults(self):
+        results = []
+        collection = self.targetCollection()
+        if collection is not None:
+            results = collection.queryCatalog(sort_on=None)
+            random.shuffle(results)
+        return results
+    
 
 class AddForm(base.AddForm):
     """Portlet add form"""
