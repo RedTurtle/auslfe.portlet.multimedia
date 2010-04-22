@@ -97,8 +97,14 @@ class Renderer(base.Renderer):
             return None
         else:
             return collection.absolute_url()
-
-
+        
+    @memoize
+    def standardResults(self):
+        results = []
+        collection = self.targetCollection()
+        if collection is not None:
+            results = collection.queryCatalog()
+        return results
 
 class AddForm(base.AddForm):
     """Portlet add form"""

@@ -1,17 +1,41 @@
-<dl class="portlet portletAuslfePortletMultimedia"
+<dl class="portlet portletMultimedia auslUSPortlet"
     i18n:domain="auslfe.portlet.multimedia">
     
-    <dt class="portletHeader">
+    <dt class="portletHeader noTitle">
         <span class="portletTopLeft"></span>
-        <span tal:content="view/data/portlet_title">
+        <span class="icon_title"></span>
+        <span class="portlet_title" tal:content="view/data/portlet_title">
            Title
         </span>
         <span class="portletTopRight"></span>
     </dt>
-
-    <dd class="portletItem odd">
-        Body text
+    
+    <dd class="portletItem navMultimedia">
+    	<ul class="navTree navTreeLevel0">
+        	<li class="navTreeItem visualNoMarker navTreeFolderish filmati">
+				<div>
+					<a title="" class="state-published navTreeFolderish" href="#">
+						<span>Filmati</span>
+					</a>
+				</div>
+			</li>
+			<li class="navTreeItem visualNoMarker navTreeFolderish archivio-fotografico">
+				<div>
+					<a title="" class="state-published navTreeFolderish" href="#">
+						<span>Archivio fotografico</span>
+					</a>
+				</div>
+			</li>
+        </ul>
     </dd>
+    
+    <dd class="portletItem">
+		<div class="galleryMultimedia" tal:define="standard_results python: view.standardResults()"
+									   tal:repeat="image standard_results">
+			<div class="foto_m"><img tal:attributes="src python: image.getURL() + '/image_tile'" /></div>
+		</div>
+		<div class="visualClear"></div>
+	</dd>
 
     <dd class="portletFooter">
         <span class="portletBottomLeft"></span>
