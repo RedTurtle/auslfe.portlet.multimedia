@@ -18,7 +18,11 @@
     <dd class="portletItem">
 		<div class="galleryMultimedia" tal:define="standard_results python: view.results()"
 									   tal:repeat="image standard_results">
-			<div class="foto_m"><img tal:attributes="src python: image.getURL() + '/image_tile'" /></div>
+			<div class="foto_m">
+				<a href="#" tal:attributes="href python: image.getURL() + '/image_view_fullscreen'">
+					<img tal:attributes="src python: image.getURL() + '/image_tile'" />
+				</a>
+			</div>
 		</div>
 		<div class="visualClear"></div>
 	</dd>
