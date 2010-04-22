@@ -31,19 +31,29 @@ class IAuslfePortletMultimedia(IPortletDataProvider):
                                       required=False,
                                       source=SearchableTextSourceBinder({'object_provides' : IATTopic.__identifier__},
                                                                         default_query='path:'))
+    
+    target_collection_title = schema.TextLine(title=_(u"Testo del link all'archivio fotografico"),
+                                              description=_(u"Puoi personalizzare il testo del link all'archivio (se vuoto sara\'  'Tutte le foto')."),
+                                              required=False)
+    
+    portlet_class = schema.TextLine(title=_(u"Classe CSS"),
+                                   description=_(u"In questo campo puoi aggiungere una classe CSS."),
+                                   required=False)
 
 class Assignment(base.Assignment):
     """Portlet assignment"""
 
     implements(IAuslfePortletMultimedia)
     
-    def __init__(self,portlet_title='',portlet_text='',target_collection=None):
+    def __init__(self,portlet_title='',portlet_text='',target_collection=None,target_collection_title='',portlet_class=''):
         """
         """        
         base.Assignment.__init__(self)
         self.portlet_title = portlet_title
         self.portlet_text = portlet_text
         self.target_collection = target_collection
+        self.target_collection_title = target_collection_title
+        self.portlet_class = portlet_class
 
     @property
     def title(self):
