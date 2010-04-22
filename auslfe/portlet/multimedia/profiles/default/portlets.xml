@@ -3,8 +3,8 @@
 
  <portlet
    addview="auslfe.portlet.multimedia.AuslfePortletMultimedia"
-   title="Auslfe Portlet Multimedia"
-   description="Portlet Multimedia"
+   title="Riquadro Multimedia"
+   description="Riquadro Multimedia"
    />
 
 </portlets>

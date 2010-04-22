@@ -27,7 +27,7 @@ class IAuslfePortletMultimedia(IPortletDataProvider):
                                required=False)
     
     target_collection = schema.Choice(title=_(u"Archivio fotografico"),
-                                      description=_(u"Seleziona la collezione che fornisce le foto da visualizzare"),
+                                      description=_(u"Seleziona la collezione che fornisce le foto da visualizzare."),
                                       required=False,
                                       source=SearchableTextSourceBinder({'object_provides' : IATTopic.__identifier__},
                                                                         default_query='path:'))
