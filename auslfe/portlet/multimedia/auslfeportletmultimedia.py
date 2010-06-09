@@ -116,27 +116,31 @@ class Renderer(base.Renderer):
         """Get the actual result brains from the collection"""
         if self.data.random:
             return self.randomResults()
-        else:
-            return self.standardResults()
+        return self.standardResults()
         
     @memoize
     def standardResults(self):
-        results = []
         collection = self.targetCollection()
+        limit = collection.getItemCount()
         if collection is not None:
-            results = collection.queryCatalog()
-        return results
+            if limit:
+                return collection.queryCatalog()[:limit]
+            return collection.queryCatalog()
+        return []
         
     def randomResults(self):
-        results = []
         collection = self.targetCollection()
+        limit = collection.getItemCount()
         if collection is not None:
-            results = collection.queryCatalog(sort_on=None)
+            results = [x for x in collection.queryCatalog(sort_on=None)]
             try:
                 random.shuffle(results)
-            except AttributeError:
+                if limit:
+                    return results[:limit]
                 return results
-        return results
+            except AttributeError:
+                return []
+        return []
     
 
 class AddForm(base.AddForm):
