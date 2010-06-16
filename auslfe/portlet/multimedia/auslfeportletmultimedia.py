@@ -143,17 +143,18 @@ class Renderer(base.Renderer):
         
     def randomResults(self):
         collection = self.targetCollection()
-        limit = collection.getItemCount()
         if collection is not None:
-            results = [x for x in collection.queryCatalog(sort_on=None,
-                                                          object_provides=IImageContent.__identifier__)]
-            try:
-                random.shuffle(results)
-                if limit:
-                    return results[:limit]
-                return results
-            except AttributeError:
-                return []
+            limit = collection.getItemCount()
+            if collection is not None:
+                results = [x for x in collection.queryCatalog(sort_on=None,
+                                                              object_provides=IImageContent.__identifier__)]
+                try:
+                    random.shuffle(results)
+                    if limit:
+                        return results[:limit]
+                    return results
+                except AttributeError:
+                    return []
         return []
     
 
