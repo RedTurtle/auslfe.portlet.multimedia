@@ -5,7 +5,7 @@ version = '0.2.0'
 
 setup(name='auslfe.portlet.multimedia',
       version=version,
-      description="Package for the Multimedia Portlet",
+      description="A simple Plone multimedia Portlet with additional optional features",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -13,10 +13,10 @@ setup(name='auslfe.portlet.multimedia',
         "Framework :: Plone",
         "Programming Language :: Python",
         ],
-      keywords='',
-      author='Plone Foundation',
-      author_email='plone-developers@lists.sourceforge.net',
-      url='http://plone.org',
+      keywords='plone jquery plonegov portlet multimedia image',
+      author='RedTurtle Technology',
+      author_email='sviluppoplone@redturte.net',
+      url='http://plone.org/products/auslfe.portlet.multimedia',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['auslfe', 'auslfe.portlet'],

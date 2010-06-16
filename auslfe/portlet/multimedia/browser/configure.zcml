@@ -22,5 +22,9 @@
       name="auslfe-multimediaportlet.js"
       file="auslfe-multimediaportlet.js"
       />
+  <browser:resource
+      name="auslfe-accessible_css.js"
+      file="auslfe-accessible_css.js"
+      />
 
 </configure>

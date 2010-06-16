@@ -35,11 +35,12 @@ jq(document).ready(function() {
 		jq.get(link.attr('href')+'/@@query_images', {}, function(data) {
 			images = data;
 			reorder();
+			portlet.removeClass("hideFlag");
 		}, dataType='json');
 		
 		// Client reload images?
 		var client_reload = jq("span.client_reload",portlet).length>0;
-		if (client_reload) {
+		if (rnd && client_reload) {
 			portlet.bind("imagesReload", function(event) {
 				jq("img", portlet).fadeOut("fast", function() {
 					jq("img", portlet).remove();
@@ -53,3 +54,4 @@ jq(document).ready(function() {
 		};
 	});
 });
+

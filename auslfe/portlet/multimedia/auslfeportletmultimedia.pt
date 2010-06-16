@@ -1,7 +1,7 @@
 <dl i18n:domain="auslfe.portlet.multimedia"
     tal:define="portlet_class view/getPortletClass;
 	            standard_results view/results"
-    tal:attributes="class string:portlet portletStaticText $portlet_class portletMultimedia auslUSPortlet">
+    tal:attributes="class string:portlet portletStaticText hideFlag $portlet_class portletMultimedia auslUSPortlet">
     
     <dt class="portletHeader noTitle">
         <span class="portletTopLeft"></span>
