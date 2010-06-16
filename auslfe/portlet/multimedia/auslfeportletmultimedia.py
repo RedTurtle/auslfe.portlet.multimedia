@@ -17,44 +17,53 @@ from plone.memoize.instance import memoize
 from zope.component import getMultiAdapter
 import random
 
+from Products.ATContentTypes.interface import IImageContent
 
 class IAuslfePortletMultimedia(IPortletDataProvider):
     """A portlet"""
 
-    portlet_title = schema.TextLine(title=_(u"Titolo del riquadro"),
-                               description = _(u"Inserisci il titolo del riquadro."),
+    portlet_title = schema.TextLine(title=_(u"multimedia_title_label", default=u"Portlet title"),
                                required = True)
     
-    portlet_text = schema.Text(title=_(u"Testo del riquadro"),
-                               description=_(u"Inserire il testo da visualizzare nell'intestazione del riquadro."),
+    portlet_text = schema.Text(title=_(u"multimedia_text_label", default=u"Portlet text"),
+                               description=_(u"multimedia_text_help", default=u"Insert there a text you want to display above the multimedia data."),
                                required=False)
     
-    target_collection = schema.Choice(title=_(u"Archivio fotografico"),
-                                      description=_(u"Seleziona la collezione che fornisce le foto da visualizzare."),
+    target_collection = schema.Choice(title=_(u"multimedia_archive_label", default=u"Images archive"),
+                                      description=_(u"multimedia_archive_help", default=u"Select a collection that contains all your image or image-like contents."),
                                       required=False,
                                       source=SearchableTextSourceBinder({'object_provides' : IATTopic.__identifier__},
                                                                         default_query='path:'))
     
-    target_collection_title = schema.TextLine(title=_(u"Testo del link all'archivio fotografico"),
-                                              description=_(u"Puoi personalizzare il testo del link all'archivio (se vuoto sara\'  'Tutte le foto')."),
+    target_collection_title = schema.TextLine(title=_(u"multimedia_archive_title_label", default=u"Label of the link to archive"),
+                                              description=_(u"multimedia_archive_title_help", default=(u"You can customize the link to the archive "
+                                                                                                        "(if empty, will be \"All images\").")),
                                               required=False)
     
-    random = schema.Bool(title=_(u"Seleziona elementi a caso"),
-                         description=_(u"Se abilitato, gli elementi verranno estratti dalla collezione in ordine casuale,"
-                                        " invece che nell'ordine stabilito dalla collezione stessa."),
+    random = schema.Bool(title=_(u"multimedia_random_label", default=u"Choose random images"),
+                         description=_(u"multimedia_random_help", default=u"If checked, the normal sorting of the collection will be ignored, and random images will be returned"),
                          required=False,
                          default=True)
+
+    client_reload = schema.Bool(title=_(u"multimedia_client_random_label", default=u"Random reload at client side"),
+                                description=_(u"multimedia_client_random_help", default=u"If checked, and if you choose for random images, they will be changed every 30 seconds"),
+                                required=False,
+                                default=False)
     
-    portlet_class = schema.TextLine(title=_(u"Classe CSS"),
-                                   description=_(u"In questo campo puoi aggiungere una classe CSS."),
+    portlet_class = schema.TextLine(title=_(u"multimedia_css_label", default=u"CSS class"),
+                                   description=_(u"multimedia_css_help", default=u"Put there additional CSS class(es) that will be added to the HTML"),
                                    required=False)
+
 
 class Assignment(base.Assignment):
     """Portlet assignment"""
 
     implements(IAuslfePortletMultimedia)
     
-    def __init__(self,portlet_title='',portlet_text='',target_collection=None,target_collection_title='',random=True,portlet_class=''):
+    client_reload = False
+    
+    def __init__(self, portlet_title='', portlet_text='', target_collection=None,
+                 target_collection_title='', random=True, portlet_class='', client_reload=False):
         """
         """        
         base.Assignment.__init__(self)
@@ -64,15 +73,14 @@ class Assignment(base.Assignment):
         self.target_collection_title = target_collection_title
         self.random = random
         self.portlet_class = portlet_class
+        self.client_reload = client_reload
 
     @property
     def title(self):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return "Riquadro Multimedia"
-        #target_collection = str(self.data.target_collection[1:])
-        #return "Riquadro Multimedia: %s" % target_collection
+        return _(u"Multimedia portlet") + (self.portlet_title and ": "+self.portlet_title or '')
 
 class Renderer(base.Renderer):
     """Portlet renderer"""
@@ -103,6 +111,11 @@ class Renderer(base.Renderer):
         portal = portal_state.portal()
         return portal.restrictedTraverse(target_collection, default=None)
     
+    def limit(self):
+        if self.targetCollection():
+            return self.targetCollection().getItemCount()
+        return 0
+    
     def getTargetCollectionPath(self):
         """Restituisce l'url della collezione che fornisce le foto da visualizzare"""
         
@@ -125,14 +138,15 @@ class Renderer(base.Renderer):
         if collection is not None:
             if limit:
                 return collection.queryCatalog()[:limit]
-            return collection.queryCatalog()
+            return collection.queryCatalog(object_provides=IImageContent.__identifier__)
         return []
         
     def randomResults(self):
         collection = self.targetCollection()
         limit = collection.getItemCount()
         if collection is not None:
-            results = [x for x in collection.queryCatalog(sort_on=None)]
+            results = [x for x in collection.queryCatalog(sort_on=None,
+                                                          object_provides=IImageContent.__identifier__)]
             try:
                 random.shuffle(results)
                 if limit:
