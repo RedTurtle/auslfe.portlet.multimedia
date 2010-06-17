@@ -2,6 +2,10 @@
  * Multimedia Javascript for auslfe.portlet.multimedia 
  */
 
+jQuery.auslfe_multimedia = {
+    timeout: 30000
+};
+
 jq(document).ready(function() {
 	
 	/**
@@ -27,7 +31,9 @@ jq(document).ready(function() {
 			jq(".galleryMultimedia a", portlet).each(function(index) {
 				var link = jq(this); 
 				var curData = images[index];
-				link.append('<img alt="'+curData.description+'" title="'+curData.title+'" src="'+curData.url+'/image_tile" '+(startHidden?' style="display:none"':'')+'/>');
+				if (!curData.image)
+					curData.image = jq('<img alt="'+curData.description+'" title="'+curData.title+'" src="'+curData.url+'/image_tile" '+(startHidden?' style="display:none"':'')+'/>')
+				link.append(curData.image);
 				link.attr("href", curData.url+"/image_view_fullscreen");
 			});
 		};
@@ -50,7 +56,7 @@ jq(document).ready(function() {
 			});
 			setInterval(function() {
 				portlet.trigger("imagesReload");
-			}, 30000);
+			}, jq.auslfe_multimedia.timeout);
 		};
 	});
 });

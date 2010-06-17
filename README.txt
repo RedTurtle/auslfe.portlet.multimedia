@@ -51,7 +51,6 @@ TODO
 ====
 
 * Tests on Plone 4: there is the new SunBurst Theme and jQuery 1.4.
-* Do not create from scratch the images, but store all client side.
 
 Credits
 =======
