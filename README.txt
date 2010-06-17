@@ -59,3 +59,13 @@ Developed with the support of `Azienda USL Ferrara`__; Azienda USL Ferrara suppo
 
 __ http://www.ausl.fe.it/
 __ http://www.plonegov.it/
+
+Authors
+=======
+
+This product was developed by RedTurtle Technology team.
+
+.. image:: http://www.redturtle.net/redturtle_banner.png
+   :alt: RedTurtle Technology Site
+   :target: http://www.redturtle.net/
+
