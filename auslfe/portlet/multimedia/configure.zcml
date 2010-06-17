@@ -15,7 +15,7 @@
 
     <genericsetup:registerProfile
        name="default"
-       title="Auslfe Portlet Multimedia"
+       title="AUSL FE Multimedia portlet"
        directory="profiles/default"
        description=""
        provides="Products.GenericSetup.interfaces.EXTENSION"
