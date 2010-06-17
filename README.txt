@@ -19,8 +19,12 @@ return also other content, but only ones marked as "image-able" are used (techni
 it also filter only contents that provides *IImageContent*, like "Image" and "News Item" content
 type already do).
 
-From the target collection, also the "Number of items" field is used, to show in the portlet only
+From the target collection is also used the "Number of items" field, to show in the portlet only
 a limited number of images.
+
+The "Limit Search Results" field is not directly used by this portlet, but change the collection
+behaviour. Enabling the client random feature with this check selected will only reorder a limited
+set of images.
 
 Performance
 -----------
@@ -29,7 +33,7 @@ What scare us about other Javascript-live multimedia portlet (besides accessibil
 use of AJAX call to the server. This can lead to two problems:
 
 * too many request (and low performance)
-* random feature can work bad with cache in front of Plone
+* random feature could work badly with cache in front of Plone
 
 For this reason this portlet will not query every *xyz* seconds the server, but simply get from
 the server all the images, the randomly reload it client side.
@@ -46,7 +50,8 @@ enough for host 2 images for every row.
 TODO
 ====
 
-Tests on Plone 4: there is the new SunBurst Theme and jQuery 1.4.
+* Tests on Plone 4: there is the new SunBurst Theme and jQuery 1.4.
+* Do not create from scratch the images, but store all client side.
 
 Credits
 =======
