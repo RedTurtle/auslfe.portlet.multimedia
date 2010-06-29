@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.2.0 (Unreleased)
+0.2.0 (2010-06-09)
 ------------------
 
 * first public release (on pypi)

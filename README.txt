@@ -4,8 +4,8 @@ Documentation
 Yet another multimedia/dynamic portlet for Plone that display images.
 
 Why you can like this instead of other? Because it works with Javascript disabled (with an eye
-onto the ´Italian Accessibility Act´__) and is tested to work behind reverse-proxy (like
-´Varnish´__).
+onto the `Italian Accessibility Act`__) and is tested to work behind reverse-proxy (like
+`Varnish`__).
 
 __ http://www.pubbliaccesso.it/normative/DM080705-A-en.htm
 __ http://varnish-cache.org/
@@ -19,10 +19,10 @@ return also other content, but only ones marked as "image-able" are used (techni
 it also filter only contents that provides *IImageContent*, like "Image" and "News Item" content
 type already do).
 
-From the target collection is also used the "Number of items" field, to show in the portlet only
+From the target collection is also used the "*Number of items*" field, to show in the portlet only
 a limited number of images.
 
-The "Limit Search Results" field is not directly used by this portlet, but change the collection
+The "*Limit Search Results*" field is not directly used by this portlet, but change the collection
 behaviour. Enabling the client random feature with this check selected will only reorder a limited
 set of images.
 
