@@ -10,7 +10,7 @@
 	  class=".query_images.QueryImagesView"
       permission="zope2.View"
       />
-    
+
   <!-- Resource directory for stylesheets -->
   <browser:resource
       name="auslfe-multimediaportlet.css"
@@ -18,6 +18,10 @@
       />
 
   <!-- Resource directory for javascript -->
+  <browser:resource
+      name="jquery.imagesLoaded.js"
+      file="jquery.imagesLoaded.js"
+      />
   <browser:resource
       name="auslfe-multimediaportlet.js"
       file="auslfe-multimediaportlet.js"

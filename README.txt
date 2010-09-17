@@ -51,6 +51,7 @@ TODO
 ====
 
 * Tests on Plone 4: there is the new SunBurst Theme and jQuery 1.4.
+* Configure client reload timeout from portlet UI.
 
 Credits
 =======

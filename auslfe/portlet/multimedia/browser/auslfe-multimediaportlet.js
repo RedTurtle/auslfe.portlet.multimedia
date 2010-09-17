@@ -3,10 +3,24 @@
  */
 
 jQuery.auslfe_multimedia = {
-    timeout: 30000
+    timeout: 30000,
+	i18n: {
+		en: {
+			stopReload: 'Click to stop auto-reload',
+			restartReload: 'Click to restart auto-reload'
+		},
+		it: {
+			stopReload: 'Click per fermare il caricamento automatico',
+			restartReload: 'Click per avviare di nuovo il caricamento automatico'
+		}
+	}
 };
 
 jq(document).ready(function() {
+	
+	// Site language
+	var lang = jq("html").attr('lang') || 'en';
+	var i18n = jq.auslfe_multimedia.i18n[lang] || jq.auslfe_multimedia.i18n['en'];
 	
 	/**
 	 * A function for random sorting an array or aray-like object
@@ -15,12 +29,22 @@ jq(document).ready(function() {
 		return (Math.round(Math.random())-0.5);
 	} 
 	
+	/**
+	 * At load time, remove all images and stop links HREF
+	 */
 	jq('.portletMultimedia .galleryMultimedia a').each(function() {
 		jq(this).attr("href", "javascript:;").find("img").remove();
 	});
+	
+	/**
+	 * Prepare portlets to AJAX load images from server
+	 */
 	jq('.portletMultimedia').each(function(index) {
 		var portlet = jq(this);
+		// Load random images?
 		var rnd = jq("span.random",portlet).length>0;
+		// Client reload images?
+		var client_reload = jq("span.client_reload",portlet).length>0;
 		var link = jq(".portletFooter a", portlet);
 		// var timestamps = new Date().getTime();
 		var images = null;
@@ -32,7 +56,7 @@ jq(document).ready(function() {
 				var link = jq(this); 
 				var curData = images[index];
 				if (!curData.image)
-					curData.image = jq('<img alt="'+curData.description+'" title="'+curData.title+'" src="'+curData.url+'/image_tile" '+(startHidden?' style="display:none"':'')+'/>')
+					curData.image = jq('<img alt="'+curData.description+'" title="'+curData.title+'" src="'+curData.url+'/image_tile" '+(startHidden?' style="display:none"':'')+'/>');
 				link.append(curData.image);
 				link.attr("href", curData.url+"/image_view_fullscreen");
 			});
@@ -44,20 +68,40 @@ jq(document).ready(function() {
 			portlet.removeClass("hideFlag");
 		}, dataType='json');
 		
-		// Client reload images?
-		var client_reload = jq("span.client_reload",portlet).length>0;
 		if (rnd && client_reload) {
+			// 1 - bind the reload image event
 			portlet.bind("imagesReload", function(event) {
 				jq("img", portlet).fadeOut("fast", function() {
 					jq("img", portlet).remove();
 					reorder(true);
-					jq("img", portlet).fadeIn("fast");
+					//jq("img", portlet).fadeIn("fast");
+					jq(".galleryMultimedia img", portlet).imagesLoaded(function(e) {
+						jq(this).fadeIn("fast");
+					});
 				});
 			});
-			setInterval(function() {
+			
+			var reloadEventHandler = function() {
 				portlet.trigger("imagesReload");
-			}, jq.auslfe_multimedia.timeout);
+			}
+			var intval = setInterval(reloadEventHandler, jq.auslfe_multimedia.timeout);
+
+			// 2 - handle clicks on portlet title
+			jq(".portletHeader", this).attr('title', i18n['stopReload']);
+			jq(".portletHeader", this).click(function(e) {
+				client_reload = !client_reload;
+				if (client_reload) {
+					jq(this).attr('title', i18n['stopReload']);
+					intval = setInterval(reloadEventHandler, jq.auslfe_multimedia.timeout);
+					reloadEventHandler();
+				}
+				else {
+					jq(this).attr('title', i18n['restartReload']);					
+					clearInterval(intval);
+				}
+			});
 		};
+		
 	});
 });
 
