@@ -49,6 +49,10 @@ jq(document).ready(function() {
 		// var timestamps = new Date().getTime();
 		var images = null;
 		
+		/**
+		 * Change order on the stored images
+		 * @param {boolean} startHidden true if images must start hidden
+		 */
 		function reorder(startHidden) {
 			var startHidden = startHidden || false; 
 			if (rnd) images.sort(randOrd);
@@ -58,6 +62,9 @@ jq(document).ready(function() {
 				if (!curData.image)
 					curData.image = jq('<img alt="'+curData.description+'" title="'+curData.title+'" src="'+curData.url+'/image_tile" '+(startHidden?' style="display:none"':'')+'/>');
 				link.append(curData.image);
+				curData.image.imagesLoaded(function(e) {
+					jq(this).fadeIn("fast");
+				});
 				link.attr("href", curData.url+"/image_view_fullscreen");
 			});
 		};
@@ -72,13 +79,8 @@ jq(document).ready(function() {
 			// 1 - bind the reload image event
 			portlet.bind("portletRefresh", function(event) {
 				jq("img", portlet).fadeOut("fast", function() {
-					// BBB: to be fixed. This handler is called for every time a simple image is fadeIn
 					jq("img", portlet).remove();
 					reorder(true);
-					//jq("img", portlet).fadeIn("fast");
-					jq(".galleryMultimedia img", portlet).imagesLoaded(function(e) {
-						jq(this).fadeIn("fast");
-					});
 				});
 			});
 			
