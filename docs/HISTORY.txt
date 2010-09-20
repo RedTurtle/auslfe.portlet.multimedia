@@ -8,6 +8,8 @@ Changelog
 * fixed a bug (thanks to the plugin above): sometimes the image was not "faded-in" correctly [keul]
 * changed custom event name to "portletRefresh" [keul]
 * minor accessibility fix: click on the portlet title stop/start client images reload, if enabled [keul]
+* portlet title in Plone UI was always in italian language: fixed [keul]
+* template fix, now working also on different themes (and with more images for line) [keul]
 
 __ http://gist.github.com/268257
 
