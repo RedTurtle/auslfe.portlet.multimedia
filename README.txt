@@ -61,8 +61,8 @@ Just add something like this in one of your Javascript source::
     jQuery.auslfe_multimedia = {
         i18n: {
             xx: {
-                stopReload: '"Click to stop auto-reload" in your language',
-                restartReload: '"Click to restart auto-reload" in your language'
+                stopReload: '"Click to stop auto-reload" in xx language',
+                restartReload: '"Click to restart auto-reload" in xx language'
             }
         }
     };
