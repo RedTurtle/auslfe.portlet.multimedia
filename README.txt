@@ -59,12 +59,12 @@ change the product source.
 Just add something like this in one of your Javascript source::
 
     jQuery.auslfe_multimedia = {
-	    i18n: {
-		    xx: {
-			    stopReload: '"Click to stop auto-reload" in your language',
-			    restartReload: '"Click to restart auto-reload" in your language'
-		    }
-	    }
+        i18n: {
+            xx: {
+                stopReload: '"Click to stop auto-reload" in your language',
+                restartReload: '"Click to restart auto-reload" in your language'
+            }
+        }
     };
 
 Change *xx* above with the 2-letters code of your language and customize other strings.
