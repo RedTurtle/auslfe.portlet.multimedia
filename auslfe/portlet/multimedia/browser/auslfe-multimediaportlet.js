@@ -70,8 +70,9 @@ jq(document).ready(function() {
 		
 		if (rnd && client_reload) {
 			// 1 - bind the reload image event
-			portlet.bind("imagesReload", function(event) {
+			portlet.bind("portletRefresh", function(event) {
 				jq("img", portlet).fadeOut("fast", function() {
+					// BBB: to be fixed. This handler is called for every time a simple image is fadeIn
 					jq("img", portlet).remove();
 					reorder(true);
 					//jq("img", portlet).fadeIn("fast");
@@ -82,7 +83,7 @@ jq(document).ready(function() {
 			});
 			
 			var reloadEventHandler = function() {
-				portlet.trigger("imagesReload");
+				portlet.trigger("portletRefresh");
 			}
 			var intval = setInterval(reloadEventHandler, jq.auslfe_multimedia.timeout);
 

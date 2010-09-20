@@ -6,6 +6,7 @@ Changelog
 
 * integrated `imagesLoaded`__ jQuery plugin [keul]
 * fixed a bug (thanks to the plugin above): sometimes the image was not "faded-in" correctly [keul]
+* changed custom event name to "portletRefresh" [keul]
 * minor accessibility fix: click on the portlet title stop/start client images reload, if enabled [keul]
 
 __ http://gist.github.com/268257
