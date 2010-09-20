@@ -59,7 +59,6 @@ change the product source.
 Just add something like this in one of your Javascript source::
 
     jQuery.auslfe_multimedia = {
-        timeout: 30000,            // note this: if you want change 30 secs timeout
 	    i18n: {
 		    xx: {
 			    stopReload: '"Click to stop auto-reload" in your language',
@@ -75,7 +74,8 @@ TODO
 ====
 
 * Tests on Plone 4: there is the new SunBurst Theme and jQuery 1.4.
-* Configure client reload timeout from portlet UI.
+* Configure client reload timeout from portlet UI (now you can still, customizing the *timeout* var
+  in Javascript).
 
 Credits
 =======
