@@ -47,6 +47,30 @@ Be aware: CSS styles
 Default Plone columns are narrow. Installing this will make your portlet min width a little bigger,
 enough for host 2 images for every row.
 
+Translations
+------------
+
+When using client side reload feature, the user can (for accessibility reason) stop and restart the
+auto-reload task.
+
+The portlet title will display an help message. To add additional translation you are able to *not*
+change the product source.
+
+Just add something like this in one of your Javascript source::
+
+    jQuery.auslfe_multimedia = {
+        timeout: 30000,            // note this: if you want change 30 secs timeout
+	    i18n: {
+		    xx: {
+			    stopReload: '"Click to stop auto-reload" in your language',
+			    restartReload: '"Click to restart auto-reload" in your language'
+		    }
+	    }
+    };
+
+Change *xx* above with the 2-letters code of your language and customize other strings.
+Language loaded is taken from the language of the site (for any problem, fallback on english).
+
 TODO
 ====
 
