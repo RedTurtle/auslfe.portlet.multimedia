@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-06-16 12:25+0000\n"
+"POT-Creation-Date: 2010-09-20 21:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Luca Fabbri <luca.fabbri@redturtle.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,9 +19,14 @@ msgstr ""
 msgid "All images"
 msgstr "Tutte le foto"
 
-#: ./auslfeportletmultimedia.py:81
+#: ./auslfeportletmultimedia.py:83
 msgid "Multimedia portlet"
 msgstr "Riquadro multimedia"
+
+#. Default: "Multimedia portlet with image preview gallery"
+#: ./profiles/default/portlets.xml
+msgid "description_ausl_multimedia_portlet"
+msgstr "Portlet multimediale con galleria immagini"
 
 #. Default: "Select a collection that contains all your image or image-like contents."
 #: ./auslfeportletmultimedia.py:33
@@ -87,4 +92,9 @@ msgstr "Testo del riquadro"
 #: ./auslfeportletmultimedia.py:25
 msgid "multimedia_title_label"
 msgstr "Titolo del riquadro"
+
+#. Default: "Multimedia images portlet"
+#: ./profiles/default/portlets.xml
+msgid "title_ausl_multimedia_portlet"
+msgstr "Portlet multimediale immagini"
 

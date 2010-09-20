@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-06-16 12:25+0000\n"
+"POT-Creation-Date: 2010-09-20 21:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,8 +20,13 @@ msgstr ""
 msgid "All images"
 msgstr ""
 
-#: ./auslfeportletmultimedia.py:81
+#: ./auslfeportletmultimedia.py:83
 msgid "Multimedia portlet"
+msgstr ""
+
+#. Default: "Multimedia portlet with image preview gallery"
+#: ./profiles/default/portlets.xml
+msgid "description_ausl_multimedia_portlet"
 msgstr ""
 
 #. Default: "Select a collection that contains all your image or image-like contents."
@@ -87,5 +92,10 @@ msgstr ""
 #. Default: "Portlet title"
 #: ./auslfeportletmultimedia.py:25
 msgid "multimedia_title_label"
+msgstr ""
+
+#. Default: "Multimedia images portlet"
+#: ./profiles/default/portlets.xml
+msgid "title_ausl_multimedia_portlet"
 msgstr ""
 
