@@ -12,6 +12,7 @@ setup(name='auslfe.portlet.multimedia',
       classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
+        "Development Status :: 5 - Production/Stable",
         ],
       keywords='plone jquery plonegov portlet multimedia image',
       author='RedTurtle Technology',
