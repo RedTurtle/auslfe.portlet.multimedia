@@ -3,12 +3,17 @@ Documentation
 
 Yet another multimedia/dynamic portlet for Plone that display images.
 
-Why you can like this instead of other? Because it works with Javascript disabled (with an eye
+Why you can want this instead of other? Because it works with Javascript disabled (with an eye
 onto the `Italian Accessibility Act`__) and is tested to work behind reverse-proxy (like
 `Varnish`__).
 
 __ http://www.pubbliaccesso.it/normative/DM080705-A-en.htm
 __ http://varnish-cache.org/
+
+.. figure:: http://keul.it/images/plone/auslfe.portlet.multimedia-0.2.0.png
+   :alt: Portlet preview
+   
+   How the portlet looks like on AUSL web site
 
 How to use
 ----------
@@ -41,12 +46,6 @@ the server all the images, the randomly reload it client side.
 The *auto-reload feature* can be disabled if you don't like it. You still have a random image
 set at page load time.
 
-Be aware: CSS styles
---------------------
-
-Default Plone columns are narrow. Installing this will make your portlet min width a little bigger,
-enough for host 2 images for every row.
-
 Translations
 ------------
 
@@ -73,7 +72,6 @@ Language loaded is taken from the language of the site (for any problem, fallbac
 TODO
 ====
 
-* Tests on Plone 4: there is the new SunBurst Theme and jQuery 1.4.
 * Configure client reload timeout from portlet UI (now you can still, customizing the *timeout* var
   in Javascript).
 

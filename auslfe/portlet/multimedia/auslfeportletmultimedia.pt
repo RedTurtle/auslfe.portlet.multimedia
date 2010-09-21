@@ -32,12 +32,9 @@
 												 alt image/Description;" />
 						</a>
 				</div>
-				<!--div class="visualClear"
-				     tal:define="curIndex repeat/image/number"
-					 tal:condition="python:curIndex % 2 == 0" ></div-->
 			</tal:photos>
+			<div class="visualClear"><!-- --></div>
 		</div>
-		<div class="visualClear"><!-- --></div>
 	</dd>
 
     <dd class="portletFooter" tal:condition="standard_results">

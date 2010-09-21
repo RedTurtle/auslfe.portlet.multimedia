@@ -1,10 +1,5 @@
 /*** portlet multimedia ***/
 
-#portal-column-one,
-#portal-column-two {
-	min-width: 19em;
-}
-
 .portletMultimedia .galleryMultimedia {
 	background-color: #FFF;
 	border: 1px solid #CCC;
