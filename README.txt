@@ -41,7 +41,7 @@ use of AJAX call to the server. This can lead to two problems:
 * random feature could work badly with cache in front of Plone
 
 For this reason this portlet will not query every *xyz* seconds the server, but simply get from
-the server all the images, the randomly reload it client side.
+the server all the images, then randomly reload them client side.
 
 The *auto-reload feature* can be disabled if you don't like it. You still have a random image
 set at page load time.
