@@ -7,7 +7,14 @@
   <browser:page
       for="Products.ATContentTypes.interface.IATTopic"
       name="query_images"
-	  class=".query_images.QueryImagesView"
+	    class=".query_images.QueryImagesView"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="plone.app.collection.interfaces.ICollection"
+      name="query_images"
+      class=".query_images.QueryImagesView"
       permission="zope2.View"
       />
 
@@ -17,11 +24,6 @@
       file="auslfe-multimediaportlet.css"
       />
 
-  <!-- Resource directory for javascript -->
-  <browser:resource
-      name="jquery.imagesLoaded.js"
-      file="jquery.imagesLoaded.js"
-      />
   <browser:resource
       name="auslfe-multimediaportlet.js"
       file="auslfe-multimediaportlet.js"

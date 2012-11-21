@@ -1,7 +1,8 @@
 <dl i18n:domain="auslfe.portlet.multimedia"
     tal:define="portlet_class view/getPortletClass;
 	            standard_results view/results"
-    tal:attributes="class string:portlet portletStaticText hideFlag $portlet_class portletMultimedia auslUSPortlet">
+    tal:attributes="class string:portlet portletStaticText hideFlag $portlet_class portletMultimedia auslUSPortlet;
+                    data-reloadtimeout view/data/reload_timeout">
     
     <dt class="portletHeader noTitle">
         <span class="portletTopLeft"></span>
@@ -15,7 +16,6 @@
     <dd class="portletItem navMultimedia">
     	<div tal:replace="structure view/data/portlet_text" />
     </dd>
-    
     <dd class="portletItem" tal:condition="standard_results">
 		<span class="random" style="display:none"
 		      tal:condition="view/data/random"

@@ -54,10 +54,10 @@ jq(document).ready(function() {
 		 * @param {boolean} startHidden true if images must start hidden
 		 */
 		function reorder(startHidden) {
-			var startHidden = startHidden || false; 
+			var startHidden = startHidden || false;
 			if (rnd) images.sort(randOrd);
 			jq(".galleryMultimedia a", portlet).each(function(index) {
-				var link = jq(this); 
+				var link = jq(this);
 				var curData = images[index];
 				if (!curData.image)
 					curData.image = jq('<img alt="'+curData.description+'" title="'+curData.title+'" src="'+curData.url+'/image_tile" '+(startHidden?' style="display:none"':'')+'/>');
@@ -67,7 +67,7 @@ jq(document).ready(function() {
 				});
 				link.attr("href", curData.url+"/image_view_fullscreen");
 			});
-		};
+		}
 		
 		jq.get(link.attr('href')+'/@@query_images', {}, function(data) {
 			images = data;
@@ -86,8 +86,9 @@ jq(document).ready(function() {
 			
 			var reloadEventHandler = function() {
 				portlet.trigger("portletRefresh");
-			}
-			var intval = setInterval(reloadEventHandler, jq.auslfe_multimedia.timeout);
+			};
+			var reload_timeout = this.getAttribute('data-reloadtimeout') || jq.auslfe_multimedia.timeout;
+			var intval = setInterval(reloadEventHandler, reload_timeout);
 
 			// 2 - handle clicks on portlet title
 			jq(".portletHeader", this).attr('title', i18n['stopReload']);
@@ -95,15 +96,15 @@ jq(document).ready(function() {
 				client_reload = !client_reload;
 				if (client_reload) {
 					jq(this).attr('title', i18n['stopReload']);
-					intval = setInterval(reloadEventHandler, jq.auslfe_multimedia.timeout);
+					intval = setInterval(reloadEventHandler, reload_timeout);
 					reloadEventHandler();
 				}
 				else {
-					jq(this).attr('title', i18n['restartReload']);					
+					jq(this).attr('title', i18n['restartReload']);
 					clearInterval(intval);
 				}
 			});
-		};
+		}
 		
 	});
 });

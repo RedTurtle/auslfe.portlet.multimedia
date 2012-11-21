@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-09-20 21:03+0000\n"
+"POT-Creation-Date: 2012-11-14 16:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Luca Fabbri <luca.fabbri@redturtle.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "All images"
 msgstr "Tutte le foto"
 
-#: ./auslfeportletmultimedia.py:83
+#: ./auslfeportletmultimedia.py:90
 msgid "Multimedia portlet"
 msgstr "Riquadro multimedia"
 
@@ -58,13 +58,23 @@ msgstr "Se selezionato, e se hai scelto per avere immagini casuali, queste verra
 msgid "multimedia_client_random_label"
 msgstr "Ricarica casualmente nei browser"
 
-#. Default: "Put there additional CSS class(es) that will be added to the HTML"
+#. Default: "Set the timeout interval for random reload. In milliseconds. Default are 30 seconds (30000)"
 #: ./auslfeportletmultimedia.py:54
+msgid "multimedia_client_reload_timeout_help"
+msgstr ""
+
+#. Default: "Reload timeout"
+#: ./auslfeportletmultimedia.py:53
+msgid "multimedia_client_reload_timeout_label"
+msgstr ""
+
+#. Default: "Put there additional CSS class(es) that will be added to the HTML"
+#: ./auslfeportletmultimedia.py:59
 msgid "multimedia_css_help"
 msgstr "Aggiungi una classe(i) CSS da aggiungere nel sorgente HTML."
 
 #. Default: "CSS class"
-#: ./auslfeportletmultimedia.py:53
+#: ./auslfeportletmultimedia.py:58
 msgid "multimedia_css_label"
 msgstr "Classe CSS"
 

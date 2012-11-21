@@ -1,12 +1,13 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.2.1'
+version = '1.0.0'
+tests_require = ['plone.app.testing']
 
 setup(name='auslfe.portlet.multimedia',
       version=version,
       description="A simple Plone multimedia Portlet with additional optional features",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -26,8 +27,10 @@ setup(name='auslfe.portlet.multimedia',
       install_requires=[
           'setuptools',
           'Plone',
-          # -*- Extra requirements: -*-
+          'collective.js.imagesloaded',
       ],
+      tests_require=tests_require,
+      extras_require=dict(test=tests_require),
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]

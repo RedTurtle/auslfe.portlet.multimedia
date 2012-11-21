@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0.0 (unreleased)
+------------------
+
+* Fixed compatibility with new Plone 4 collections [andrea]
+* Added dependency to collective.js.imagesloaded [andrea]
+* Added uninstall step [andrea]
+
 0.2.1 (2010-09-21)
 ------------------
 

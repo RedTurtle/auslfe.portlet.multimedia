@@ -12,11 +12,28 @@
     <i18n:registerTranslations directory="locales" />
 	
 	<include package=".browser" />
+  <include file="upgrades.zcml" />
 
     <genericsetup:registerProfile
        name="default"
        title="AUSL FE Multimedia portlet"
        directory="profiles/default"
+       description=""
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+    <genericsetup:registerProfile
+       name="uninstall"
+       title="AUSL FE Multimedia portlet: Uninstall profile"
+       directory="profiles/uninstall"
+       description=""
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+    <genericsetup:registerProfile
+       name="migrate_to_1000"
+       title="AUSL FE Multimedia portlet: migration profile"
+       directory="profiles/migrate_to_1000"
        description=""
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
