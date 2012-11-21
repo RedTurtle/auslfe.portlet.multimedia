@@ -69,11 +69,6 @@ Just add something like this in one of your Javascript source::
 Change *xx* above with the 2-letters code of your language and customize other strings.
 Language loaded is taken from the language of the site (for any problem, fallback on english).
 
-TODO
-====
-
-* Configure client reload timeout from portlet UI (now you can still, customizing the *timeout* var
-  in Javascript).
 
 Credits
 =======

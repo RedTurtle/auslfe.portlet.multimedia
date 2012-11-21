@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-11-14 16:18+0000\n"
+"POT-Creation-Date: 2012-11-21 11:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,8 +20,16 @@ msgstr ""
 msgid "All images"
 msgstr ""
 
-#: ./auslfeportletmultimedia.py:90
+#: ./auslfeportletmultimedia.py:43
+msgid "Limit"
+msgstr ""
+
+#: ./auslfeportletmultimedia.py:97
 msgid "Multimedia portlet"
+msgstr ""
+
+#: ./auslfeportletmultimedia.py:44
+msgid "Specify the maximum number of items to show in the portlet. Leave this blank to show all items."
 msgstr ""
 
 #. Default: "Multimedia portlet with image preview gallery"
@@ -49,43 +57,43 @@ msgstr ""
 msgid "multimedia_archive_title_label"
 msgstr ""
 
-#. Default: "If checked, and if you choose for random images, they will be changed every 30 seconds"
-#: ./auslfeportletmultimedia.py:49
+#. Default: "If checked, and if you choose for random images, they will be changed every time interval set in Reload timeout field."
+#: ./auslfeportletmultimedia.py:54
 msgid "multimedia_client_random_help"
 msgstr ""
 
 #. Default: "Random reload at client side"
-#: ./auslfeportletmultimedia.py:48
+#: ./auslfeportletmultimedia.py:53
 msgid "multimedia_client_random_label"
 msgstr ""
 
-#. Default: "Set the timeout interval for random reload. In milliseconds. Default are 30 seconds (30000)"
-#: ./auslfeportletmultimedia.py:54
+#. Default: "Set the timeout interval for random reload. In milliseconds. Default is 30 seconds (30000)."
+#: ./auslfeportletmultimedia.py:59
 msgid "multimedia_client_reload_timeout_help"
 msgstr ""
 
 #. Default: "Reload timeout"
-#: ./auslfeportletmultimedia.py:53
+#: ./auslfeportletmultimedia.py:58
 msgid "multimedia_client_reload_timeout_label"
 msgstr ""
 
-#. Default: "Put there additional CSS class(es) that will be added to the HTML"
-#: ./auslfeportletmultimedia.py:59
+#. Default: "Put there additional CSS class(es) that will be added to the HTML."
+#: ./auslfeportletmultimedia.py:64
 msgid "multimedia_css_help"
 msgstr ""
 
 #. Default: "CSS class"
-#: ./auslfeportletmultimedia.py:58
+#: ./auslfeportletmultimedia.py:63
 msgid "multimedia_css_label"
 msgstr ""
 
-#. Default: "If checked, the normal sorting of the collection will be ignored, and random images will be returned"
-#: ./auslfeportletmultimedia.py:44
+#. Default: "If checked, the normal sorting of the collection will be ignored, and random images will be returned."
+#: ./auslfeportletmultimedia.py:49
 msgid "multimedia_random_help"
 msgstr ""
 
 #. Default: "Choose random images"
-#: ./auslfeportletmultimedia.py:43
+#: ./auslfeportletmultimedia.py:48
 msgid "multimedia_random_label"
 msgstr ""
 

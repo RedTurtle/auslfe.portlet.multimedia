@@ -46,22 +46,22 @@ class IAuslfePortletMultimedia(IPortletDataProvider):
                        required=False)
 
     random = schema.Bool(title=_(u"multimedia_random_label", default=u"Choose random images"),
-                         description=_(u"multimedia_random_help", default=u"If checked, the normal sorting of the collection will be ignored, and random images will be returned"),
+                         description=_(u"multimedia_random_help", default=u"If checked, the normal sorting of the collection will be ignored, and random images will be returned."),
                          required=False,
                          default=True)
 
     client_reload = schema.Bool(title=_(u"multimedia_client_random_label", default=u"Random reload at client side"),
-                                description=_(u"multimedia_client_random_help", default=u"If checked, and if you choose for random images, they will be changed every 30 seconds"),
+                                description=_(u"multimedia_client_random_help", default=u"If checked, and if you choose for random images, they will be changed every time interval set in Reload timeout field."),
                                 required=False,
                                 default=False)
 
     reload_timeout = schema.Int(title=_(u"multimedia_client_reload_timeout_label", default=u"Reload timeout"),
-                             description=_(u"multimedia_client_reload_timeout_help", default=u"Set the timeout interval for random reload. In milliseconds. Default are 30 seconds (30000)"),
+                             description=_(u"multimedia_client_reload_timeout_help", default=u"Set the timeout interval for random reload. In milliseconds. Default is 30 seconds (30000)."),
                              required=True,
                              default=30000)
 
     portlet_class = schema.TextLine(title=_(u"multimedia_css_label", default=u"CSS class"),
-                                   description=_(u"multimedia_css_help", default=u"Put there additional CSS class(es) that will be added to the HTML"),
+                                   description=_(u"multimedia_css_help", default=u"Put there additional CSS class(es) that will be added to the HTML."),
                                    required=False)
 
 
