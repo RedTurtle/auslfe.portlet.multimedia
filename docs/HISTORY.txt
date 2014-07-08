@@ -1,18 +1,13 @@
 Changelog
 =========
 
-1.0.1 (unreleased)
+1.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
-
-1.0.0 (2012-11-21)
-------------------
-
-* Fixed compatibility with new Plone 4 collections [micecchi]
-* Added dependency to collective.js.imagesloaded [micecchi]
-* Added uninstall step [micecchi]
+* Fixed compatibility with new Plone 4 collections [andrea]
+* Added dependency to collective.js.imagesloaded [andrea]
+* Added uninstall step [andrea]
+* Added customizable reload timeout in portlet settings [andrea]
 
 0.2.1 (2010-09-21)
 ------------------
