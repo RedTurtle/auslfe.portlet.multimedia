@@ -19,13 +19,14 @@ jQuery.auslfe_multimedia = {
 (function($) {
 
 	$(document).ready(function() {
+		// TODO: this code is still in a jQuery 1.2 style
 		
 		// Site language
 		var lang = $("html").attr('lang') || 'en';
 		var i18n = $.auslfe_multimedia.i18n[lang] || $.auslfe_multimedia.i18n['en'];
 		
 		/**
-		 * A function for random sorting an array or aray-like object
+		 * A function for random sorting an array or array-like object
 		 */
 		function randOrd(){
 			return (Math.round(Math.random())-0.5);
