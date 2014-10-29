@@ -1,7 +1,18 @@
 Changelog
 =========
 
-1.0.0 (2014-10-29)
+1.0.1 (Unreleased)
+------------------
+
+- removed references to ``jq`` jQuery alias
+  [keul]
+- fixed install step: do not try to re-introduce the old imagesLoaded plugin
+  [keul]
+- fixed random criteria that always show one image in some edge case
+  [keul]
+
+
+1.0.0 (Unreleased)
 ------------------
 
 * Fixed compatibility with new Plone 4 collections [andrea]

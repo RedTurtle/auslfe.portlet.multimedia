@@ -183,8 +183,11 @@ class Renderer(base.Renderer):
                 results = collection.queryCatalog(sort_on=None)
             if results is None:
                 return []
-            limit = self.data.limit and min(len(results), self.data.limit) or 1
 
+            if self.data.limit:
+                limit = min(len(results), self.data.limit)
+            else:
+                limit = len(results)
             if len(results) < limit:
                 limit = len(results)
             results = random.sample(results, limit)
